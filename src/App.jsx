@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Download } from "lucide-react";
 import { downloadWord } from "./utils/exportWord";
-import { callMagmaAPI } from "./services/api";
+import { callMagmaAPI } from "./api/magmaService";
 import { renderLangkah } from "./utils/formatters";
 import { parseRefleksi } from "./utils/formatters";
 import { INITIAL_STATE } from "./utils/constants";
 import Header from "./components/Header";
-import Step1Identitas from "./components/steps/Step1Identitas";
+import Step1Identitas from "./components/steps/step1identitas";
 import Step2Dasar from "./components/steps/Step2Dasar";
 import Step3Strategi from "./components/steps/Step3Strategi";
 import Step4Konten from "./components/steps/Step4Konten";
@@ -183,6 +183,19 @@ TULISKAN LANGSUNG DAFTAR BERNOMOR SAJA.
     setLoading(false);
   };
 
+  const isModulLengkap = () => {
+    // Kita cek field kunci yang menandakan modul sudah selesai di-generate
+    const mandatoryFields = [
+      data.penyusun,
+      data.mapel,
+      data.materi,
+      data.kegiatanInti,
+      data.daftarPustaka,
+    ];
+
+    return mandatoryFields.every((field) => field && field.trim() !== "");
+  };
+
   return (
     <div className="min-h-screen bg-[#f8fafc] p-4 md:p-8 font-sans text-slate-900">
       <Header step={step} />
@@ -335,14 +348,31 @@ TULISKAN LANGSUNG DAFTAR BERNOMOR SAJA.
             {/* LANJUTAN PREVIEW SETELAH LANGKAH PEMBELAJARAN */}
             <PreviewLampiran data={data} parseRefleksi={parseRefleksi} />
           </div>
-          <div className="p-5 bg-slate-900 flex justify-center">
-            <button
-              onClick={() => downloadWord(data)}
-              disabled={!data.daftarPustaka}
-              className="text-white text-xs font-bold flex items-center gap-2 px-8 py-3 bg-blue-600 hover:bg-blue-700 transition-all rounded-full shadow-lg"
-            >
-              <Download size={16} /> Download Modul
-            </button>
+
+          {/* FOOTER ACTION PANEL */}
+          <div className="p-6 bg-slate-900 flex flex-col items-center gap-3 border-t border-slate-800">
+            {loading ? (
+              // Tampilan saat AI sedang mengetik
+              <div className="flex items-center gap-2 text-blue-400 animate-pulse">
+                <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce"></div>
+                <span className="text-xs font-medium uppercase tracking-widest">
+                  PenaPintar sedang menyusun...
+                </span>
+              </div>
+            ) : isModulLengkap() ? (
+              // Muncul HANYA jika data sudah lengkap
+              <button
+                onClick={() => downloadWord(data)}
+                className="text-white text-sm font-bold flex items-center gap-3 px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 transition-all rounded-full shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:scale-105 active:scale-95"
+              >
+                <Download size={18} /> DOWNLOAD MODUL LENGKAP (.DOCX)
+              </button>
+            ) : (
+              // Pesan pemberitahuan jika belum lengkap
+              <div className="text-slate-500 text-[10px] uppercase tracking-wider font-semibold">
+                Selesaikan Step 1 - 10 untuk Mengaktifkan Download
+              </div>
+            )}
           </div>
         </section>
       </main>

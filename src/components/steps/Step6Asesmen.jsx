@@ -51,13 +51,13 @@ Hanya tampilkan tabel saja.
               ) : (
                 <Wand2 size={14} />
               )}{" "}
-              Generate Asesmen
+              Generate
             </button>
           </div>
           <textarea
             value={data.asesmen}
             onChange={(e) => setData({ ...data, asesmen: e.target.value })}
-            className="w-full p-2 bg-transparent text-sm h-48 outline-none resize-none font-medium text-slate-700 leading-relaxed"
+            className="w-full p-4 bg-gray-50 rounded-lg text-sm h-48 outline-none resize-none font-medium text-slate-700 leading-relaxed"
             placeholder="Silahkan Klik Generate GPT-5..."
           />
         </div>
@@ -88,7 +88,7 @@ Kolom: Aspek Penilaian | Sangat Baik | Baik | Cukup | Perlu Bimbingan
               ) : (
                 <Wand2 size={14} />
               )}{" "}
-              Generate Rubrik Penilaian
+              Generate
             </button>
           </div>
           <textarea
@@ -96,7 +96,7 @@ Kolom: Aspek Penilaian | Sangat Baik | Baik | Cukup | Perlu Bimbingan
             onChange={(e) =>
               setData({ ...data, rubrikPenilaian: e.target.value })
             }
-            className="w-full p-2 bg-transparent text-sm h-48 outline-none resize-none font-medium text-slate-700 leading-relaxed"
+            className="w-full p-4 bg-gray-50 rounded-lg text-sm h-48 outline-none resize-none font-medium text-slate-700 leading-relaxed"
             placeholder="Silahkan Klik Generate GPT-5..."
           />
         </div>

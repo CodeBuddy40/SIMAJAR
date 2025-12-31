@@ -171,30 +171,47 @@ export default function PreviewIdentitas({ data }) {
         </div>
 
         {/* Baris 4: Metode & Model */}
-        <div className="flex">
-          <div className="w-[160px] shrink-0 bg-slate-50 p-4 flex items-center">
-            <span className="text-slate-500 uppercase font-black text-[9px] font-mono leading-tight">
+        <div className="flex flex-col sm:flex-row border-b border-slate-100 last:border-0">
+          {/* LABEL: Sekarang otomatis full-width di mobile, dan 160px di desktop */}
+          <div className="w-full sm:w-[160px] shrink-0 bg-slate-50/50 sm:bg-slate-50 p-3 sm:p-4 flex items-center border-b sm:border-b-0 sm:border-r border-slate-200">
+            <span className="text-slate-500 uppercase font-black text-[9px] font-mono leading-tight tracking-wider">
               Metode & Model
             </span>
           </div>
-          <div className="flex-1 p-4 border-l border-slate-200">
+
+          {/* KONTEN: Padding disesuaikan agar tidak terlalu boros ruang di mobile */}
+          <div className="flex-1 p-3 sm:p-4">
             <div className="grid grid-cols-1 gap-2 text-[10px] font-mono">
-              <div className="flex items-center">
-                <span className="text-slate-400 w-24 shrink-0">Model</span>
+              {/* Baris Model */}
+              <div className="flex flex-col sm:flex-row sm:items-center">
+                <span className="text-slate-400 w-full sm:w-24 shrink-0 sm:after:content-[''] after:hidden">
+                  Model
+                </span>
                 <span className="font-bold text-slate-700">
-                  : {data.modelPembelajaran || "..."}
+                  <span className="hidden sm:inline">: </span>
+                  {data.modelPembelajaran || "..."}
                 </span>
               </div>
-              <div className="flex items-center">
-                <span className="text-slate-400 w-24 shrink-0">Metode</span>
+
+              {/* Baris Metode */}
+              <div className="flex flex-col sm:flex-row sm:items-center">
+                <span className="text-slate-400 w-full sm:w-24 shrink-0">
+                  Metode
+                </span>
                 <span className="font-bold text-slate-700">
-                  : {data.metodePembelajaran || "..."}
+                  <span className="hidden sm:inline">: </span>
+                  {data.metodePembelajaran || "..."}
                 </span>
               </div>
-              <div className="flex items-center">
-                <span className="text-slate-400 w-24 shrink-0">Pendekatan</span>
+
+              {/* Baris Pendekatan */}
+              <div className="flex flex-col sm:flex-row sm:items-center">
+                <span className="text-slate-400 w-full sm:w-24 shrink-0">
+                  Pendekatan
+                </span>
                 <span className="font-bold text-slate-700">
-                  : {data.pendekatanPembelajaran || "..."}
+                  <span className="hidden sm:inline">: </span>
+                  {data.pendekatanPembelajaran || "..."}
                 </span>
               </div>
             </div>

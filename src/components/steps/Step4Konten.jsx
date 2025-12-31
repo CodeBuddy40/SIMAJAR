@@ -59,7 +59,7 @@ export default function Step4Konten({
               ) : (
                 <Wand2 size={14} />
               )}{" "}
-              Generate {tipe}
+              Generate
             </button>
           </div>
           <textarea
@@ -67,7 +67,7 @@ export default function Step4Konten({
             onChange={(e) =>
               setData((prev) => ({ ...prev, [tipe]: e.target.value }))
             }
-            className="w-full p-2 bg-transparent text-sm h-36 outline-none resize-none font-medium text-slate-700 leading-relaxed"
+            className="w-full p-4 bg-gray-50 rounded-lg mt-4 text-sm h-48 outline-none resize-none font-medium text-slate-700 leading-relaxed"
             placeholder={`Klik generate untuk menyusun ${tipe}...`}
           />
         </div>

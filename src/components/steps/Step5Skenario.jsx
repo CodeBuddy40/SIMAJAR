@@ -51,7 +51,7 @@ export default function Step5Skenario({
                 ) : (
                   <Wand2 size={14} />
                 )}{" "}
-                Generate {item.label}
+                Generate
               </button>
             </div>
             <textarea
@@ -62,8 +62,8 @@ export default function Step5Skenario({
                   [item.id]: e.target.value,
                 }))
               }
-              className="w-full p-2 bg-transparent text-sm h-48 outline-none resize-none font-medium text-slate-700 leading-relaxed"
-              placeholder={`Detail langkah ${item.id}...`}
+              className="w-full p-4 bg-gray-50 text-sm h-48 outline-none resize-none font-medium text-slate-700 leading-relaxed rounded-lg mt-4"
+              placeholder={`Detail kegiatan ${item.id}...`}
             />
           </div>
         ))}

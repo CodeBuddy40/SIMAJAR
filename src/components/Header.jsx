@@ -12,7 +12,7 @@ const Header = ({ step }) => {
           SIMAJAR (MODUL AJAR AI)
         </h1>
         <p className="text-[9px] md:text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-1">
-          GPT-5 Powered Assistant
+          AI Powered Assistant
         </p>
       </div>
 

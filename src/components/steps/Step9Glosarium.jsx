@@ -47,7 +47,7 @@ Aturan WAJIB:
           className="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-indigo-100"
         >
           {loading ? <Loader2 className="animate-spin" /> : <Wand2 size={18} />}{" "}
-          Generate GPT-5.0
+          Generate Glosarium
         </button>
         <textarea
           value={data.glosarium}
