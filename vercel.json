@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/magma/:path*",
+      "destination": "https://magma-api.biz.id/:path*"
+    }
+  ]
+}
