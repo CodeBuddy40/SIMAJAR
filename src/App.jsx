@@ -6,7 +6,7 @@ import { renderLangkah } from "./utils/formatters";
 import { parseRefleksi } from "./utils/formatters";
 import { INITIAL_STATE } from "./utils/constants";
 import Header from "./components/Header";
-import Step1Identitas from "./components/steps/step1identitas";
+import Step1Identitas from "./components/steps/Step1Identitas";
 import Step2Dasar from "./components/steps/Step2Dasar";
 import Step3Strategi from "./components/steps/Step3Strategi";
 import Step4Konten from "./components/steps/Step4Konten";
